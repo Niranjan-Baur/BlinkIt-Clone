@@ -62,7 +62,7 @@ const orderSchema = new mongoose.Schema({
 })
 
 const getNextSequenceValue = async (name) => {
-    const counter = await Counter.findOneAndUpdate({ name }, { $inc: { sequence_value: 1 } }, { new: true, upsert: true })
+    const counter = await Counter.findOneAndUpdate({ name }, { $inc: { seq: 1 } }, { new: true, upsert: true })
     console.log(counter,'counter')
     return counter.seq
 }
