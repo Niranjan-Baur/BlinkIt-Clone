@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
 })
 
 const customerSchema = new mongoose.Schema({
-    ...userSchema,
+    ...userSchema.obj,
     phone: { type: String, required: true, unique: true },
     role: { type: String, enum: ['Customer'], default: 'Customer' },
     liveLocation: {
@@ -23,7 +23,7 @@ const customerSchema = new mongoose.Schema({
 
 
 const deliveryPartnerSchema = new mongoose.Schema({
-    ...userSchema,
+    ...userSchema.obj,
     phone: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
@@ -41,7 +41,7 @@ const deliveryPartnerSchema = new mongoose.Schema({
 
 // Admin Schema
 const adminSchema = new mongoose.Schema({
-    ...userSchema,
+    ...userSchema.obj,
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     role: { type: String, enum: ['Admin'], default: 'Admin' },
